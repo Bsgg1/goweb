@@ -16,7 +16,11 @@ func main() {
 			fmt.Fprintf(w, "Header[%q] = %q\n", k, v)
 		}
 	})
-
+	e.GET("/hello1", func(w http.ResponseWriter, req *http.Request) {
+		for k, v := range req.Header {
+			fmt.Fprintf(w, "Header[%q] = %q\n", k, v)
+		}
+	})
 	e.Run(":9999")
 
 }
